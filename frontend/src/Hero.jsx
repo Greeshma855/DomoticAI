@@ -100,8 +100,14 @@ function Hero() {
       className="mt-auto   
  p-20 flex flex-col justify-start"
     >
-      <h2 className="text-black text-5xl">About DomoticAI</h2>
-      <p>This is about domoticAI</p>
+      <h2 className="text-black text-5xl mb-10">About DomoticAI</h2>
+      <div className='w-1/2 mb-10'>
+      <p>DomoticAI is a cutting-edge Internet of Things (IoT) solution that empowers you to control your home with just your voice. By integrating advanced voice recognition technology, DomoticAI seamlessly connects to your smart devices, enabling effortless control over lighting, climate, security, and more.</p>
+      </div>
+      <div className='w-1/2 h-1/2 mx-[50vw]'>
+      <h2 className='"text-black text-5xl mb-10'>Future Scope</h2>
+        <p>Fuelled by passion, driven by innovation. We're young, we're ambitious, and we're ready to revolutionize smart homes by building a cutting-edge startup.</p>
+      </div>
     </motion.div>
     </div>
     </div>
