@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { HiMenu, HiX } from 'react-icons/hi';
 import demo from './assets/images/demo.png';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 const HeroNav = () => {
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
     const letterVariants = {
@@ -33,21 +34,21 @@ const HeroNav = () => {
         </div>
 
         <div className="hidden md:flex items-center rounded-full px-8 py-2">
-          <a href="#home" className="text-black px-4">
+          <Link to="/" className="text-black px-4">
             Home
-          </a>
-          <a href="#pricing" className="text-black px-4">
+          </Link>
+          <Link to="/pricing" className="text-black px-4">
             Pricing
-          </a>
-          <a href="#features" className="text-black px-4">
+          </Link>
+          <Link to="/features" className="text-black px-4">
             Features
-          </a>
-          <a href="#about" className="text-black px-4">
+          </Link>
+          <Link to="/about" className="text-black px-4">
             About Us
-          </a>
-          <a href="#faq" className="text-black px-4">
+          </Link>
+          <Link to="/faq" className="text-black px-4">
             FAQ
-          </a>
+          </Link>
         </div>
         <motion.button
           className="hidden md:block bg-[#87553B] text-white px-6 py-2 rounded-lg outline-none font-medium"
