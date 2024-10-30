@@ -133,10 +133,10 @@ const HeroNav = () => {
       };
   return (
     <>
-      <nav className="flex items-center justify-between p-4 max-w-7xl mx-auto">
-        <div className="text-4xl font-bold">
+      <nav className="bg-[#EEE7DF] flex items-center justify-between p-4  mx-auto">
+        <button className="text-4xl font-bold" onClick={ () => navigate('/') }>
           Domotic<span className="text-[#A0612B]">AI</span>
-        </div>
+        </button>
 
         <div className="md:hidden">
           <button onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}>
