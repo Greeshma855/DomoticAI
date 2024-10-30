@@ -3,8 +3,13 @@ import { HiMenu, HiX } from 'react-icons/hi';
 import demo from './assets/images/demo.png';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
 const HeroNav = () => {
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const handleClick = () =>{
+      navigate('/signup');
+  }
     const letterVariants = {
         hidden: { opacity: 0, y: 50 },
         visible: (i) => ({
@@ -54,6 +59,7 @@ const HeroNav = () => {
           className="hidden md:block bg-[#87553B] text-white px-6 py-2 rounded-lg outline-none font-medium"
           whileHover={{ scale: 1.1 }}
           transition={{ duration: 0.2 }}
+          onClick={handleClick}
         >
           Get Started
         </motion.button>

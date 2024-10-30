@@ -4,9 +4,9 @@ import demo from "./assets/images/demo.png";
 import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
 import HeroFooter from "./HeroFooter";
-
 function Hero() {
   const scrollRef = useRef(null);
+ 
 
   return (
     <>
@@ -90,7 +90,7 @@ function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.5, delay: 0.6 }}
+            transition={{ duration: 1.2, delay: 0.4 }}
             viewport={{ root: scrollRef }}
             className="mt-auto   
  p-20 flex flex-col justify-start"
