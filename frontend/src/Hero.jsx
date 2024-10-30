@@ -90,7 +90,7 @@ function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, delay: 0.4 }}
+            transition={{ duration: 1.0, delay: 0.4 }}
             viewport={{ root: scrollRef }}
             className="mt-auto   
  p-20 flex flex-col justify-start"
