@@ -198,7 +198,7 @@ const Login = () => {
           </h2>
           <p className="mt-2 text-center text-sm text-yellow-800">
             Or{' '}
-            <a href="#" className="font-medium text-yellow-800 hover:text-yellow-500">
+            <a href="/register" className="font-medium text-yellow-800 hover:text-yellow-500">
               create a new account
             </a>
           </p>
