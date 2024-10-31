@@ -5,6 +5,7 @@ import Custom404 from './Custom404';
 import Pricing from './Pricing';
 import Signup from './Signup';
 import Login from './Login';
+import SmartHomeDashboard from './SmartHomeDashboard';
 
 
 
@@ -18,6 +19,7 @@ const App = () => {
       <Route path="/pricing" element={<Pricing/>} />
       <Route path="/register" element={<Signup/>} />
       <Route path="/login" element={<Login/>} />
+      <Route path="/dashboard" element={<SmartHomeDashboard/>} />
       {/* <Route path="/signup" element={<Signup/>} /> */}
     </Routes>
       
