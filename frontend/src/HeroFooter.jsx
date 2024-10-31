@@ -33,8 +33,7 @@ const HeroFooter = () => {
         <li><img src={twitter30} alt="twitter" className='p-2'/></li>
         <li><img src={linkedin30} alt="linkedin" className='p-2'/></li>
       </ul>
-      </div>
-      
+      </div> 
     </div>
     </>
   )
