@@ -12,7 +12,9 @@ function Hero() {
     <>
       <div className="min-h-screen bg-[#EEE7DF]">
         {/* Navigation Bar */}
-        <HeroNav />
+        <div className="p-4">
+          <HeroNav />
+        </div>
         {/* Hero Section */}
         <div className="max-w-7xl mx-auto mt-10 md:mt-20 flex flex-col-reverse md:flex-row items-center justify-between px-4">
           <motion.div

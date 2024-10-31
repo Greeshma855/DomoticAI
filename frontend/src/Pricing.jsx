@@ -156,9 +156,11 @@ import HeroNav from './HeroNav';
 const Pricing = () => {
   return (
     <>
-    <HeroNav />
-    <div className='bg-[#f2e4d4] py-12'>
-      <div className=" min-h-screen min-w-screen  px-4 sm:px-6 lg:px-8 bg-[#f2e4d4]">
+    <div className='bg-[#f2e4d4]'>
+      <div className='p-4'>
+        <HeroNav />
+      </div>
+      <div className=" min-h-screen min-w-screen pt-12 px-4 sm:px-6 lg:px-8 bg-[#f2e4d4]">
         <div className="text-center">
           <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">Pricing</h2>
           <p className="mt-4 text-xl text-gray-500">Choose the plan that's right for your smart home.</p>
