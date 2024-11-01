@@ -151,7 +151,7 @@
 
 
 import React from 'react';
-import HeroNav from './HeroNav';
+import HeroNav from '../components/HeroNav';
 
 const Pricing = () => {
   return (
