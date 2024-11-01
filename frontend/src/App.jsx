@@ -6,6 +6,7 @@ import Pricing from './Pricing';
 import Signup from './Signup';
 import Login from './Login';
 import SmartHomeDashboard from './SmartHomeDashboard';
+import AnalyticsDashboard from './AnalyticsDashboard';
 
 
 
@@ -20,6 +21,7 @@ const App = () => {
       <Route path="/register" element={<Signup/>} />
       <Route path="/login" element={<Login/>} />
       <Route path="/dashboard" element={<SmartHomeDashboard/>} />
+      <Route path="/dashboard/analytics" element={<AnalyticsDashboard/>} />
       {/* <Route path="/signup" element={<Signup/>} /> */}
     </Routes>
       

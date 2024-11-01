@@ -10,7 +10,7 @@ const TemperatureControl = () => {
     <div className="relative w-40 h-40">
       {/* Temperature display in center */}
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="text-3xl font-bold">21°C</div>
+        <div className="text-3xl font-bold text-amber-900">21°C</div>
       </div>
       
       {/* SVG Circle */}
@@ -20,7 +20,7 @@ const TemperatureControl = () => {
           cx="80"
           cy="80"
           r={radius}
-          className="stroke-gray-100"
+          className="stroke-amber-100"
           fill="none"
           strokeWidth="8"
         />
@@ -29,7 +29,7 @@ const TemperatureControl = () => {
           cx="80"
           cy="80"
           r={radius}
-          className="stroke-pink-500"
+          className="stroke-amber-900"
           fill="none"
           strokeWidth="8"
           strokeDasharray={circumference}
@@ -41,7 +41,6 @@ const TemperatureControl = () => {
   );
 };
 
-// Update the Card component to use the new TemperatureControl
 const Card = ({ children, className = '' }) => (
   <div className={`bg-white rounded-lg shadow ${className}`}>
     {children}
@@ -54,11 +53,10 @@ const CardContent = ({ children, className = '' }) => (
   </div>
 );
 
-// Temperature Control Card
 const TemperatureControlCard = () => (
   <Card>
     <CardContent>
-      <h3 className="font-semibold mb-4">Device limit</h3>
+      <h3 className="font-semibold mb-4 text-gray-800">Device limit</h3>
       <div className="flex items-center justify-center">
         <TemperatureControl />
       </div>
