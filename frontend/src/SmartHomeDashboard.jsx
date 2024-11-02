@@ -182,29 +182,6 @@ const SmartHomeDashboard = () => {
 
           {/* Main Content */}
           <main className="p-6 space-y-6">
-            {/* Room Preview */}
-            <Card>
-              <CardContent className="p-0">
-                <img
-                  src="/api/placeholder/800/400"
-                  alt="Room Preview"
-                  className="w-full h-48 object-cover rounded-t-lg"
-                />
-                <div className="p-4 flex items-center space-x-4">
-                  {rooms.map((room) => (
-                    <button
-                      key={room}
-                      className={`px-4 py-2 rounded-full ${
-                        room === 'Kitchen' ? 'bg-amber-100 text-amber-900' : 'text-gray-600'
-                      }`}
-                    >
-                      {room}
-                    </button>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-
             {/* Stats Grid */}
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
               {stats.map((stat) => (
