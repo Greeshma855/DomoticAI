@@ -12,7 +12,7 @@ function Hero() {
     <>
       <div className="min-h-screen bg-[#EEE7DF]">
         {/* Navigation Bar */}
-        <div className="p-4">
+        <div className="pt-4 pb-4 pl-14 pr-14">
           <HeroNav />
         </div>
         {/* Hero Section */}
