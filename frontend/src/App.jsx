@@ -1,10 +1,10 @@
 import React from 'react';
 import { Route, Routes, useNavigate } from "react-router-dom";
 import Hero from './Hero';
-import Custom404 from './Custom404';
-import Pricing from './Pricing';
-import Signup from './Signup';
-import Login from './Login';
+import Custom404 from './pages/Custom404';
+import Pricing from './pages/Pricing';
+import Signup from './pages/Signup';
+import Login from './pages/Login';
 import SmartHomeDashboard from './SmartHomeDashboard';
 import AnalyticsDashboard from './AnalyticsDashboard';
 
