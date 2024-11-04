@@ -151,13 +151,13 @@
 
 
 import React from 'react';
-import HeroNav from './HeroNav';
+import HeroNav from '../HeroNav';
 
 const Pricing = () => {
   return (
     <>
     <div className='bg-[#f2e4d4]'>
-      <div className='p-4'>
+      <div className='pt-4 pb-4 pl-14 pr-14'>
         <HeroNav />
       </div>
       <div className=" min-h-screen min-w-screen pt-12 px-4 sm:px-6 lg:px-8 bg-[#f2e4d4]">
