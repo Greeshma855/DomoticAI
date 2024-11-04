@@ -40,16 +40,7 @@ const Sidebar = () => {
   const menuItems = [
     { icon: LayoutDashboard, label: 'Dashboards', href: '/dashboard' },
     { icon: BarChart2, label: 'Analytics', href: '/analytics' },
-    { icon: Compass, label: 'Discover', href: '/discover' },
-    { icon: ShoppingCart, label: 'Sales', href: '/sales' },
     { icon: Home, label: 'Smart Home', href: '/dashboard', active: true },
-  ];
-
-  const subMenuItems = [
-    { icon: FileText, label: 'Pages', href: '/pages' },
-    { icon: Boxes, label: 'Applications', href: '/apps' },
-    { icon: ShoppingCart, label: 'E-commerce', href: '/ecommerce' },
-    { icon: Key, label: 'Authentication', href: '/auth' },
   ];
 
   return (
@@ -102,25 +93,7 @@ const Sidebar = () => {
         </div>
 
         {/* Sub Menu */}
-        <div className="p-4">
-          <div className="text-xs font-semibold text-gray-400 uppercase mb-4">Pages</div>
-          <nav className="space-y-1">
-            {subMenuItems.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  navigate(item.href);
-                }}
-                className="flex items-center space-x-2 px-3 py-2 rounded-lg text-sm text-gray-600 hover:bg-gray-50"
-              >
-                <item.icon className="w-5 h-5" />
-                <span>{item.label}</span>
-              </a>
-            ))}
-          </nav>
-        </div>
+        
       </div>
     </div>
   );
