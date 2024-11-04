@@ -11,7 +11,6 @@ import AnalyticsDashboard from './AnalyticsDashboard';
 
 
 const App = () => {
-  const navigate = useNavigate()
  
   return (
     <Routes>
@@ -22,7 +21,6 @@ const App = () => {
       <Route path="/login" element={<Login/>} />
       <Route path="/dashboard" element={<SmartHomeDashboard/>} />
       <Route path="/dashboard/analytics" element={<AnalyticsDashboard/>} />
-      {/* <Route path="/signup" element={<Signup/>} /> */}
     </Routes>
       
   );
