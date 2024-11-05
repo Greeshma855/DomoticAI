@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import {
   BarChart2,
   Bell,
@@ -11,13 +12,33 @@ import {
   ThermometerSun,
   Wifi,
   Wind,
+=======
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { 
+  Bell, 
+  Search, 
+  Settings, 
+  Plus, 
+  ThermometerSun, 
+  Droplets, 
+  Wifi, 
+  Wind, 
+  Lightbulb,
+  LayoutDashboard,
+  BarChart2,
+  Home,
+>>>>>>> a1430b36adde7e39cac55443e35649792f1ea7f9
   X
 } from 'lucide-react';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import TemperatureControlCard from './TemperatureControl';
 
+<<<<<<< HEAD
 // ... (previous code remains the same until the SmartHomeDashboard component's device card section)
+=======
+>>>>>>> a1430b36adde7e39cac55443e35649792f1ea7f9
 const Card = ({ children, className = '', onClick }) => (
   <div className={`bg-white rounded-lg shadow ${className}`} onClick={onClick}>
     {children}
@@ -168,8 +189,11 @@ const Sidebar = () => {
 };
 
 const SmartHomeDashboard = () => {
+<<<<<<< HEAD
 // ... (previous state and handlers remain the same)
 
+=======
+>>>>>>> a1430b36adde7e39cac55443e35649792f1ea7f9
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [devices, setDevices] = useState([
     { name: 'Humidity Sensor', type: 'Humidity', status: 'off', lastActive: '2 days' },
@@ -197,6 +221,7 @@ const SmartHomeDashboard = () => {
   const handleAddDevice = (newDevice) => {
     setDevices(prevDevices => [...prevDevices, newDevice]);
   };
+<<<<<<< HEAD
 
   const toggleDevice = (index) => {
     setDevices(prevDevices => 
@@ -222,6 +247,32 @@ return (
         {/* ... (previous header and stats sections remain the same) */}
                  <header className="bg-white p-4 flex justify-between items-center shadow-sm">
            <div className="flex items-center space-x-4">
+=======
+
+  const toggleDevice = (index) => {
+    setDevices(prevDevices => 
+      prevDevices.map((device, i) => {
+        if (i === index) {
+          const newStatus = device.status === 'on' ? 'off' : 'on';
+          return {
+            ...device,
+            status: newStatus,
+            lastActive: newStatus === 'on' ? 'Active' : 'Just now'
+          };
+        }
+        return device;
+      })
+    );
+  };
+
+  return (
+    <div className="flex">
+      <Sidebar />
+      <div className="flex-1">
+        <div className="min-h-screen bg-green-50/30">
+          <header className="bg-white p-4 flex justify-between items-center shadow-sm">
+            <div className="flex items-center space-x-4">
+>>>>>>> a1430b36adde7e39cac55443e35649792f1ea7f9
               <h1 className="text-xl font-bold">Smart Home</h1>
             </div>
             <div className="flex items-center space-x-4">
@@ -258,6 +309,25 @@ return (
                ))}
              </div>
 
+<<<<<<< HEAD
+=======
+          <main className="p-6 space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+              {stats.map((stat) => (
+                <Card key={stat.label}>
+                  <CardContent>
+                    <div className="text-3xl font-bold text-green-700">
+                      {stat.value}
+                      <span className="text-lg">{stat.unit}</span>
+                    </div>
+                    <div className="text-gray-600">{stat.label}</div>
+                    <div className="text-sm text-gray-400">{stat.sublabel}</div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+
+>>>>>>> a1430b36adde7e39cac55443e35649792f1ea7f9
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <TemperatureControlCard/>
 
@@ -280,6 +350,7 @@ return (
               </Card>
             </div>
 
+<<<<<<< HEAD
 
           <div className="grid grid-cols-2 md:grid-cols-6 gap-4">
             {devices.map((device, index) => (
@@ -324,6 +395,38 @@ return (
                   }`}>
                     {device.lastActive}
                   </div>
+=======
+            <div className="grid grid-cols-2 md:grid-cols-6 gap-4">
+              {devices.map((device, index) => (
+                <Card 
+                  key={`${device.name}-${index}`} 
+                  className={`cursor-pointer transition-colors duration-200 ${
+                    device.status === 'on' ? 'bg-green-700 text-white' : ''
+                  }`}
+                  onClick={() => toggleDevice(index)}
+                >
+                  <CardContent>
+                    <DeviceIcon 
+                      type={device.type} 
+                      className={`h-6 w-6 ${device.status === 'on' ? 'text-white' : 'text-gray-600'}`} 
+                    />
+                    <div className={`mt-2 text-sm ${device.status === 'on' ? 'text-white' : 'text-gray-600'}`}>
+                      {device.name}
+                    </div>
+                    <div className={`text-xs ${device.status === 'on' ? 'text-white/80' : 'text-gray-400'}`}>
+                      {device.lastActive}
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+              <Card 
+                className="border-2 border-dashed cursor-pointer hover:border-green-500"
+                onClick={() => setIsModalOpen(true)}
+              >
+                <CardContent className="flex flex-col items-center justify-center">
+                  <Plus className="h-6 w-6 text-gray-400" />
+                  <span className="mt-2 text-sm text-gray-600">New device</span>
+>>>>>>> a1430b36adde7e39cac55443e35649792f1ea7f9
                 </CardContent>
               </Card>
             ))}
@@ -340,6 +443,11 @@ return (
           </div>
         </main>
       </div>
+      <Modal 
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onSubmit={handleAddDevice}
+      />
     </div>
     <Modal 
       isOpen={isModalOpen}
