@@ -4,6 +4,7 @@ import { Eye, EyeOff } from 'lucide-react';
 import googleLogo from '../assets/images/google-logo.jpg';
 import { useNavigate } from 'react-router-dom';
 
+
 const Signup = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
@@ -31,6 +32,7 @@ const Signup = () => {
 
       console.log('Signup successful:', response.data);
       // Redirect or update the UI to show successful signup
+      navigate('/dashboard');
     } catch (err) {
       console.error('Signup error:', err);
       setError(err.response?.data?.message || 'Something went wrong.');
@@ -104,7 +106,7 @@ const Signup = () => {
                 </span>
               </div>
             </div>
-            <button type="submit" className="w-3/4 py-3 bg-[#8c4600] text-white rounded-md hover:bg-[#be4205] active:bg-[#4e2d12] transition">
+            <button type="submit" onClick={handleSubmit} className="w-3/4 py-3 bg-[#8c4600] text-white rounded-md hover:bg-[#be4205] active:bg-[#4e2d12] transition">
               Sign Up
             </button>
             <p className="my-4 font-semibold">OR</p>

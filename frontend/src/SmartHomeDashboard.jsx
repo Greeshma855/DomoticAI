@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import {
   BarChart2,
   Bell,
@@ -12,45 +11,26 @@ import {
   ThermometerSun,
   Wifi,
   Wind,
-=======
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { 
-  Bell, 
-  Search, 
-  Settings, 
-  Plus, 
-  ThermometerSun, 
-  Droplets, 
-  Wifi, 
-  Wind, 
-  Lightbulb,
-  LayoutDashboard,
-  BarChart2,
-  Home,
->>>>>>> a1430b36adde7e39cac55443e35649792f1ea7f9
   X
 } from 'lucide-react';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import TemperatureControlCard from './TemperatureControl';
 
-<<<<<<< HEAD
-// ... (previous code remains the same until the SmartHomeDashboard component's device card section)
-=======
->>>>>>> a1430b36adde7e39cac55443e35649792f1ea7f9
+// Card component
 const Card = ({ children, className = '', onClick }) => (
   <div className={`bg-white rounded-lg shadow ${className}`} onClick={onClick}>
     {children}
   </div>
 );
 
+// Card content component
 const CardContent = ({ children, className = '' }) => (
   <div className={`p-4 ${className}`}>
     {children}
   </div>
 );
 
+// Device icon component
 const DeviceIcon = ({ type, className }) => {
   const icons = {
     'Humidity': Droplets,
@@ -59,11 +39,12 @@ const DeviceIcon = ({ type, className }) => {
     'Lights': Lightbulb,
     'Wi-fi': Wifi
   };
-  
+
   const IconComponent = icons[type];
   return IconComponent ? <IconComponent className={className} /> : null;
 };
 
+// Modal for adding new devices
 const Modal = ({ isOpen, onClose, onSubmit }) => {
   const [deviceName, setDeviceName] = useState('');
   const [deviceType, setDeviceType] = useState('Humidity');
@@ -129,9 +110,10 @@ const Modal = ({ isOpen, onClose, onSubmit }) => {
   );
 };
 
+// Sidebar component
 const Sidebar = () => {
   const navigate = useNavigate();
-  
+
   const menuItems = [
     { icon: LayoutDashboard, label: 'Dashboard', href: '/dashboard' },
     { icon: BarChart2, label: 'Analytics', href: '/analytics' },
@@ -188,12 +170,8 @@ const Sidebar = () => {
   );
 };
 
+// Main dashboard component
 const SmartHomeDashboard = () => {
-<<<<<<< HEAD
-// ... (previous state and handlers remain the same)
-
-=======
->>>>>>> a1430b36adde7e39cac55443e35649792f1ea7f9
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [devices, setDevices] = useState([
     { name: 'Humidity Sensor', type: 'Humidity', status: 'off', lastActive: '2 days' },
@@ -221,33 +199,6 @@ const SmartHomeDashboard = () => {
   const handleAddDevice = (newDevice) => {
     setDevices(prevDevices => [...prevDevices, newDevice]);
   };
-<<<<<<< HEAD
-
-  const toggleDevice = (index) => {
-    setDevices(prevDevices => 
-      prevDevices.map((device, i) => {
-        if (i === index) {
-          const newStatus = device.status === 'on' ? 'off' : 'on';
-          return {
-            ...device,
-            status: newStatus,
-            lastActive: newStatus === 'on' ? 'Active' : 'Just now'
-          };
-        }
-        return device;
-      })
-    );
-  };
-
-return (
-  <div className="flex">
-    <Sidebar />
-    <div className="flex-1">
-      <div className="min-h-screen bg-green-50/30">
-        {/* ... (previous header and stats sections remain the same) */}
-                 <header className="bg-white p-4 flex justify-between items-center shadow-sm">
-           <div className="flex items-center space-x-4">
-=======
 
   const toggleDevice = (index) => {
     setDevices(prevDevices => 
@@ -272,7 +223,6 @@ return (
         <div className="min-h-screen bg-green-50/30">
           <header className="bg-white p-4 flex justify-between items-center shadow-sm">
             <div className="flex items-center space-x-4">
->>>>>>> a1430b36adde7e39cac55443e35649792f1ea7f9
               <h1 className="text-xl font-bold">Smart Home</h1>
             </div>
             <div className="flex items-center space-x-4">
@@ -287,175 +237,79 @@ return (
               <Settings className="h-6 w-6 text-gray-600" />
               <div className="relative">
                 <Bell className="h-6 w-6 text-gray-600" />
-                <span className="absolute -top-1 -right-1 h-4 w-4 bg-green-700 rounded-full text-white text-xs flex items-center justify-center">
-                  2
-                </span>
+                <span className="absolute top-0 right-0 block h-2 w-2 rounded-full bg-red-500" />
               </div>
             </div>
           </header>
-        <main className="p-6 space-y-6">
-          {/* ... (previous sections remain the same) */}
-                      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-               {stats.map((stat) => (
-                <Card key={stat.label}>                   <CardContent>
-                     <div className="text-3xl font-bold text-green-700">
-                       {stat.value}
-                       <span className="text-lg">{stat.unit}</span>
-                     </div>
-                     <div className="text-gray-600">{stat.label}</div>
-                     <div className="text-sm text-gray-400">{stat.sublabel}</div>
-                   </CardContent>
-                 </Card>
-               ))}
-             </div>
 
-<<<<<<< HEAD
-=======
-          <main className="p-6 space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-              {stats.map((stat) => (
-                <Card key={stat.label}>
+          <div className="p-4 space-y-6">
+            <div className="grid grid-cols-4 gap-4">
+              {stats.map((stat, index) => (
+                <Card key={index} className="text-center">
                   <CardContent>
-                    <div className="text-3xl font-bold text-green-700">
+                    <h2 className="text-4xl font-bold">
                       {stat.value}
-                      <span className="text-lg">{stat.unit}</span>
-                    </div>
-                    <div className="text-gray-600">{stat.label}</div>
-                    <div className="text-sm text-gray-400">{stat.sublabel}</div>
+                      <span className="text-2xl text-gray-400">{stat.unit}</span>
+                    </h2>
+                    <p className="text-gray-700">{stat.label}</p>
+                    <p className="text-sm text-gray-500">{stat.sublabel}</p>
                   </CardContent>
                 </Card>
               ))}
             </div>
 
->>>>>>> a1430b36adde7e39cac55443e35649792f1ea7f9
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <TemperatureControlCard/>
-
-              <Card>
-               <CardContent>
-                 <div className="flex justify-between items-center mb-4">
-                   <h3 className="font-semibold">Consumption by room</h3>
-                   <button className="text-gray-400">
-                     <Settings className="h-5 w-5" />
-                   </button>
-                 </div>
-                 <div className="space-y-2">
-                 {roomConsumption.map((room) => (
-                     <div key={room.room} className="flex items-center justify-between">
-                       <span className="text-sm text-gray-600">{room.room}</span>
-                       <span className="text-sm text-gray-400">{room.percentage}%</span>
-                      </div>                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+            <div className="flex justify-between items-center">
+              <h2 className="text-lg font-semibold">Connected Devices</h2>
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="flex items-center bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700"
+              >
+                <Plus className="h-5 w-5 mr-1" />
+                Add Device
+              </button>
             </div>
 
-<<<<<<< HEAD
-
-          <div className="grid grid-cols-2 md:grid-cols-6 gap-4">
-            {devices.map((device, index) => (
-              <Card 
-                key={`${device.name}-${index}`} 
-                className={`cursor-pointer transition-all duration-300 transform hover:scale-105 ${
-                  device.status === 'on' 
-                    ? 'bg-gradient-to-br from-green-600 to-green-700 shadow-lg shadow-green-500/20' 
-                    : 'bg-white hover:shadow-md hover:border-green-100'
-                }`}
-                onClick={() => toggleDevice(index)}
-              >
-                <CardContent className={`${device.status === 'on' ? 'text-white' : ''}`}>
-                  <div className="flex justify-between items-center">
-                    <DeviceIcon 
-                      type={device.type} 
-                      className={`h-6 w-6 ${
-                        device.status === 'on' 
-                          ? 'text-white' 
-                          : 'text-gray-600'
-                      }`} 
-                    />
-                    <div className={`px-2 py-1 rounded-full text-xs ${
-                      device.status === 'on'
-                        ? 'bg-white/20 text-white'
-                        : 'bg-gray-100 text-gray-600'
-                    }`}>
-                      {device.status}
-                    </div>
-                  </div>
-                  <div className={`mt-3 font-medium ${
-                    device.status === 'on' 
-                      ? 'text-white' 
-                      : 'text-gray-600'
-                  }`}>
-                    {device.name}
-                  </div>
-                  <div className={`text-xs mt-1 ${
-                    device.status === 'on' 
-                      ? 'text-white/80' 
-                      : 'text-gray-400'
-                  }`}>
-                    {device.lastActive}
-                  </div>
-=======
-            <div className="grid grid-cols-2 md:grid-cols-6 gap-4">
+            <div className="grid grid-cols-3 gap-4">
               {devices.map((device, index) => (
-                <Card 
-                  key={`${device.name}-${index}`} 
-                  className={`cursor-pointer transition-colors duration-200 ${
-                    device.status === 'on' ? 'bg-green-700 text-white' : ''
+                <Card
+                  key={index}
+                  className={`text-center cursor-pointer transition-colors duration-200 ${
+                    device.status === 'on' 
+                      ? 'bg-green-100 border-2 border-green-500' 
+                      : 'border-2 border-gray-300'
                   }`}
                   onClick={() => toggleDevice(index)}
                 >
                   <CardContent>
-                    <DeviceIcon 
-                      type={device.type} 
-                      className={`h-6 w-6 ${device.status === 'on' ? 'text-white' : 'text-gray-600'}`} 
-                    />
-                    <div className={`mt-2 text-sm ${device.status === 'on' ? 'text-white' : 'text-gray-600'}`}>
-                      {device.name}
-                    </div>
-                    <div className={`text-xs ${device.status === 'on' ? 'text-white/80' : 'text-gray-400'}`}>
-                      {device.lastActive}
-                    </div>
+                    <DeviceIcon type={device.type} className="h-10 w-10 mx-auto" />
+                    <h3 className="mt-2 text-xl font-bold">{device.name}</h3>
+                    <p className="text-gray-500">{device.lastActive}</p>
                   </CardContent>
                 </Card>
               ))}
-              <Card 
-                className="border-2 border-dashed cursor-pointer hover:border-green-500"
-                onClick={() => setIsModalOpen(true)}
-              >
-                <CardContent className="flex flex-col items-center justify-center">
-                  <Plus className="h-6 w-6 text-gray-400" />
-                  <span className="mt-2 text-sm text-gray-600">New device</span>
->>>>>>> a1430b36adde7e39cac55443e35649792f1ea7f9
-                </CardContent>
-              </Card>
-            ))}
-            
-            <Card 
-              className="border-2 border-dashed cursor-pointer hover:border-green-500 transition-colors duration-200 hover:bg-green-50/50"
-              onClick={() => setIsModalOpen(true)}
-            >
-              <CardContent className="flex flex-col items-center justify-center">
-                <Plus className="h-6 w-6 text-gray-400" />
-                <span className="mt-2 text-sm text-gray-600">New device</span>
-              </CardContent>
-            </Card>
+            </div>
+
+            <div className="p-4 bg-white rounded-lg shadow">
+              <h2 className="text-lg font-semibold">Room Energy Consumption</h2>
+              <div className="space-y-2 mt-2">
+                {roomConsumption.map((room, index) => (
+                  <div key={index} className="flex items-center justify-between">
+                    <span>{room.room}</span>
+                    <div className="flex items-center w-2/3">
+                      <div className="bg-green-500 h-2 rounded-full" style={{ width: `${room.percentage}%` }} />
+                      <span className="ml-2 text-sm text-gray-500">{room.percentage}%</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
-        </main>
+        </div>
       </div>
-      <Modal 
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        onSubmit={handleAddDevice}
-      />
+
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} onSubmit={handleAddDevice} />
     </div>
-    <Modal 
-      isOpen={isModalOpen}
-      onClose={() => setIsModalOpen(false)}
-      onSubmit={handleAddDevice}
-    />
-  </div>
-);
+  );
 };
 
 export default SmartHomeDashboard;
