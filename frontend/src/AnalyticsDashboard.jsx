@@ -95,7 +95,7 @@ const AnalyticsDashboard = () => {
   ];
 
   return (
-    <div className="p-6 bg-amber-50/30 min-h-screen">
+    <div className="p-6 bg-blue-50/30 min-h-screen">
       <div className="mb-8">
         <h1 className="text-2xl font-bold text-gray-800">Analytics Dashboard</h1>
         <p className="text-gray-600">Monitor your smart home performance</p>
@@ -117,8 +117,8 @@ const AnalyticsDashboard = () => {
                     <span className="text-sm ml-1">{stat.change}</span>
                   </div>
                 </div>
-                <div className="bg-amber-100 p-3 rounded-lg">
-                  <stat.icon className="w-6 h-6 text-amber-900" />
+                <div className="bg-blue-100 p-3 rounded-lg">
+                  <stat.icon className="w-6 h-6 text-blue-900" />
                 </div>
               </div>
             </CardContent>
@@ -142,8 +142,8 @@ const AnalyticsDashboard = () => {
                   <Area 
                     type="monotone" 
                     dataKey="usage" 
-                    stroke="#78350f" 
-                    fill="#fef3c7" 
+                    stroke="#1e3a8a" 
+                    fill="#dbeafe" 
                     strokeWidth={2}
                   />
                 </AreaChart>
@@ -166,7 +166,7 @@ const AnalyticsDashboard = () => {
                   <Line 
                     type="monotone" 
                     dataKey="value" 
-                    stroke="#78350f" 
+                    stroke="#1e3a8a" 
                     strokeWidth={2}
                   />
                 </LineChart>
@@ -191,7 +191,7 @@ const AnalyticsDashboard = () => {
                   <Tooltip />
                   <Bar 
                     dataKey="efficiency" 
-                    fill="#78350f" 
+                    fill="#1e3a8a" 
                     radius={[4, 4, 0, 0]}
                   />
                 </BarChart>
@@ -211,10 +211,10 @@ const AnalyticsDashboard = () => {
                     <div className="flex justify-between mb-1">
                       <span className="text-sm font-medium text-gray-700">{room.room}</span>
                       <span className="text-sm font-medium text-gray-700">{room.efficiency}%</span>
-                    </div>
+            `````        </div>
                     <div className="w-full bg-gray-200 rounded-full h-2">
                       <div 
-                        className="bg-amber-900 rounded-full h-2" 
+                        className="bg-blue-900 rounded-full h-2" 
                         style={{ width: `${room.efficiency}%` }}
                       />
                     </div>
