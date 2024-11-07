@@ -6,8 +6,9 @@ import ig30 from './assets/images/ig30.png';
 const HeroFooter = () => {
   return (
     <>
-    <div className='flex min-h-[40vh] bg-[#CAA480] border-2 justify-evenly'>
-      <div className='text-black footer-font pt-20'>
+    {/* <div className='flex min-h-[40vh] bg-[#CAA480] border-2 justify-evenly'> */}
+    <div className='flex min-h-[40vh] bg-[#113034] border-2 justify-evenly'>
+      <div className='text-[#fbf7f0] footer-font pt-20'>
       <ul>
         <span className='text-xl font-bold uppercase'>Company</span>
         <li>About Us</li>
@@ -16,7 +17,7 @@ const HeroFooter = () => {
         <li>Affiliate Program</li>
       </ul>
       </div>
-      <div className='text-black footer-font pt-20'>
+      <div className='text-[#fbf7f0] footer-font pt-20'>
       <ul>
         <span className='text-xl font-bold uppercase'>Get Help</span>
         <li>FAQ</li>
@@ -25,13 +26,13 @@ const HeroFooter = () => {
         <li>Order Status</li>
       </ul>
       </div>
-      <div className='text-black footer-font pt-20'>
+      <div className='text-[#fbf7f0] footer-font pt-20'>
       <span className='text-xl font-bold uppercase'>Follow Us</span>
       <ul className='flex flex-row justify-evenly'>
-        <li><img src={fb30} alt="fb" className='p-2'/></li>
-        <li><img src={ig30} alt="ig" className='p-2'/></li>
-        <li><img src={twitter30} alt="twitter" className='p-2'/></li>
-        <li><img src={linkedin30} alt="linkedin" className='p-2'/></li>
+        <li className="mx-1"><img src={fb30} alt="fb" className='p-2 bg-[#fbf7f0] rounded-full  '/></li>
+        <li className="mx-1"><img src={ig30} alt="ig" className='p-2 bg-[#fbf7f0] rounded-full  '/></li>
+        <li className="mx-1"><img src={twitter30} alt="twitter" className='p-2 bg-[#fbf7f0] rounded-full  '/></li>
+        <li className="mx-1"><img src={linkedin30} alt="linkedin" className='p-2 bg-[#fbf7f0] rounded-full  '/></li>
       </ul>
       </div> 
     </div>
