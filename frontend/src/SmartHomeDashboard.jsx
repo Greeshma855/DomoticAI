@@ -121,7 +121,7 @@ const Sidebar = ({ onLogout }) => {
 
   const menuItems = [
     { icon: LayoutDashboard, label: 'Dashboard', href: '/dashboard' },
-    { icon: BarChart2, label: 'Analytics', href: '/analytics' },
+    { icon: BarChart2, label: 'Analytics', href: '/dashboard/analytics' },
     { icon: Home, label: 'Smart Home', href: '/dashboard', active: true },
   ];
 
