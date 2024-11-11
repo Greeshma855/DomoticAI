@@ -8,7 +8,12 @@ import Login from './pages/Login';
 import SmartHomeDashboard from './SmartHomeDashboard';
 import AnalyticsDashboard from './AnalyticsDashboard';
 
+const [isAuthenticated, setIsAuthenticated] = useState(false);
 
+  const handleLogin = () => {
+    // Set isAuthenticated to true after a successful login
+    setIsAuthenticated(true);
+  };
 
 const App = () => {
  
@@ -18,7 +23,8 @@ const App = () => {
       <Route path="/" element={<Hero/>} />
       <Route path="/pricing" element={<Pricing/>} />
       <Route path="/register" element={<Signup/>} />
-      <Route path="/login" element={<Login/>} />
+      {/* <Route path="/login" element={<Login/>} /> */}
+      <Route path="/login" element={<Login onLogin={handleLogin} />} />
       <Route path="/dashboard" element={<SmartHomeDashboard/>} />
       <Route path="/dashboard/analytics" element={<AnalyticsDashboard/>} />
     </Routes>

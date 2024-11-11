@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { Eye, EyeOff, ReceiptEuro } from 'lucide-react';
-import axios from 'axios'; // Make sure to import axios
-// import './style.css';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
+const Login = ({ onLogin }) => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: '',
@@ -25,12 +24,13 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    setError(null); // Reset error before submission
+    setError(null);
 
     try {
       const response = await axios.post('http://localhost:5000/api/login', formData);
       if (response.status === 200) {
         alert('Login successful!');
+        onLogin();
         navigate('/dashboard');
       }
     } catch (err) {
@@ -40,8 +40,6 @@ const Login = () => {
       setIsLoading(false);
     }
   };
-
-  
 
   return (
     <div className="max-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">

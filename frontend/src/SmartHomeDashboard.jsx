@@ -1,3 +1,4 @@
+
 import {
   BarChart2,
   Bell,
@@ -11,7 +12,10 @@ import {
   ThermometerSun,
   Wifi,
   Wind,
-  X
+  X,
+  LogOut,
+  ChevronLeft,
+  ChevronRight
 } from 'lucide-react';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -111,8 +115,9 @@ const Modal = ({ isOpen, onClose, onSubmit }) => {
 };
 
 // Sidebar component
-const Sidebar = () => {
+const Sidebar = ({ onLogout }) => {
   const navigate = useNavigate();
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const menuItems = [
     { icon: LayoutDashboard, label: 'Dashboard', href: '/dashboard' },
@@ -121,50 +126,67 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="w-64 h-screen bg-white border-r flex flex-col">
-      <div className="p-4 border-b">
-        <div className="flex items-center space-x-2">
-          <div className="w-8 h-8 bg-green-700 rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold">D</span>
-          </div>
-          <span className="font-semibold text-lg">DomoticAI</span>
-        </div>
-      </div>
-
-      <div className="p-4 border-b">
-        <div className="flex items-center space-x-3">
-          <div className="w-10 h-10 rounded-full bg-gray-200"></div>
-          <div>
-            <div className="font-medium">User Account</div>
-            <div className="text-sm text-gray-500">Admin</div>
-          </div>
-        </div>
-      </div>
-
-      <div className="flex-1 overflow-y-auto">
-        <div className="p-4">
-          <div className="text-xs font-semibold text-gray-400 uppercase mb-4">Menu</div>
-          <nav className="space-y-1">
-            {menuItems.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  navigate(item.href);
-                }}
-                className={`flex items-center space-x-2 px-3 py-2 rounded-lg text-sm ${
-                  item.active 
-                    ? 'bg-green-50 text-green-700' 
-                    : 'text-gray-600 hover:bg-gray-50'
-                }`}
+    <div className={`fixed top-0 left-0 h-screen shadow-lg transition-all duration-300 ${isExpanded ? 'w-64' : 'w-16'}`}>
+      <div className="bg-white h-full flex flex-col justify-between">
+        <div>
+          <div className="p-4 flex items-center justify-between">
+            <div className="flex items-center space-x-2 cursor-pointer" onClick={() => setIsExpanded(!isExpanded)}>
+              <div className="w-8 h-8 bg-green-700 rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold">D</span>
+              </div>
+              {isExpanded && <span className="font-semibold text-lg">DomoticAI</span>}
+            </div>
+            {/* {isExpanded && (
+              <button
+                onClick={onLogout}
+                className="flex items-center space-x-2 px-3 py-2 rounded-lg text-sm text-gray-600 hover:bg-gray-50"
               >
-                <item.icon className="w-5 h-5" />
-                <span>{item.label}</span>
-              </a>
-            ))}
-          </nav>
+                <LogOut className="w-5 h-5" />
+                <span>Logout</span>
+              </button>
+            )} */}
+          </div>
+
+          {isExpanded && (
+            <div className="flex-1 overflow-y-auto">
+              <div className="p-4">
+                <div className="text-xs font-semibold text-gray-400 uppercase mb-4">Menu</div>
+                <nav className="space-y-1">
+                  {menuItems.map((item) => (
+                    <a
+                      key={item.label}
+                      href={item.href}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        navigate(item.href);
+                      }}
+                      className={`flex items-center space-x-2 px-3 py-2 rounded-lg text-sm ${
+                        item.active 
+                          ? 'bg-green-50 text-green-700' 
+                          : 'text-gray-600 hover:bg-gray-50'
+                      }`}
+                    >
+                      <item.icon className="w-5 h-5" />
+                      <span>{item.label}</span>
+                    </a>
+                  ))}
+                </nav>
+              </div>
+            </div>
+          )}
         </div>
+
+        {isExpanded && (
+          <div className="p-4 border-t">
+            <button
+              onClick={onLogout}
+              className="flex items-center space-x-2 px-3 py-2 rounded-lg text-sm text-gray-600 hover:bg-gray-50 w-full"
+            >
+              <LogOut className="w-5 h-5" />
+              <span>Logout</span>
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
@@ -173,6 +195,9 @@ const Sidebar = () => {
 // Main dashboard component
 const SmartHomeDashboard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const navigate = useNavigate();
+  const [isExpanded, setIsExpanded] = useState(false);
+
   const [devices, setDevices] = useState([
     { name: 'Humidity Sensor', type: 'Humidity', status: 'off', lastActive: '2 days' },
     { name: 'Temperature Sensor', type: 'Temperature', status: 'on', lastActive: 'Active' },
@@ -216,13 +241,25 @@ const SmartHomeDashboard = () => {
     );
   };
 
+  const handleLogout = () => {
+    // Add your logout logic here
+    navigate('/login');
+  };
+
+  const toggleSidebar = () => {
+    setIsExpanded(!isExpanded);
+  };
+
   return (
     <div className="flex">
-      <Sidebar />
-      <div className="flex-1">
+      <Sidebar onLogout={handleLogout} />
+      <div className={`flex-1 ml-16 ${isExpanded ? 'ml-64' : ''}`}>
         <div className="min-h-screen bg-green-50/30">
           <header className="bg-white p-4 flex justify-between items-center shadow-sm">
             <div className="flex items-center space-x-4">
+              <button onClick={toggleSidebar} className="text-gray-600 hover:text-gray-800">
+                {isExpanded ? <ChevronLeft className="w-6 h-6" /> : <ChevronRight className="w-6 h-6" />}
+              </button>
               <h1 className="text-xl font-bold">Smart Home</h1>
             </div>
             <div className="flex items-center space-x-4">
