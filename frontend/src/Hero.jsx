@@ -94,7 +94,7 @@ function Hero() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.0, delay: 0.4 }}
             viewport={{ root: scrollRef }}
-            className="mt-auto   
+            className="mt-auto  
  p-20 flex flex-col justify-start"
           >
             <h2 className="text-black text-5xl mb-10">About DomoticAI</h2>
@@ -107,7 +107,7 @@ function Hero() {
                 control over lighting, climate, security, and more.
               </p>
             </div>
-            <div className="w-1/2 h-1/2 mx-[50vw]">
+            <div className="w-[45%] mx-[50vw]">
               <h2 className='"text-black text-5xl mb-10'>Future Scope</h2>
               <p>
                 Fuelled by passion, driven by innovation. We're young, we're
