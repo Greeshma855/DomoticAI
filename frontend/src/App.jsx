@@ -64,8 +64,14 @@ import Signup from './pages/Signup';
 import Login from './pages/Login';
 import SmartHomeDashboard from './SmartHomeDashboard';
 import AnalyticsDashboard from './AnalyticsDashboard';
+<<<<<<< HEAD
+import Faq from './pages/faqsec';
+
+
+=======
 import { Navigate } from 'react-router-dom';
 // import Dashboard from './Dashboard';
+>>>>>>> edb45654984f80c0bc1652b2b7227ce85238b04d
 
 const App = () => {
 
@@ -91,6 +97,7 @@ const App = () => {
         element={isAuthenticated ? <SmartHomeDashboard/> : <Navigate to="/login" />}
       />
       <Route path="/dashboard/analytics" element={<AnalyticsDashboard/>} />
+      <Route path='/faq' element={<Faq />} />
     </Routes>
       
   );
