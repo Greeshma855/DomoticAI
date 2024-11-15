@@ -135,15 +135,12 @@
 // export default Hero;
 
 
-
-
-
 import HeroNav from "./HeroNav";
 import React, { useRef } from "react";
 import demo from "./assets/images/demo.png";
-import about from "./assets/images/about.jpeg";  // Add the 'about' image
-import scope1 from "./assets/images/scope.1.jpeg";  // Add the 'scope.1' image
-import scope2 from "./assets/images/scope.2.jpeg";  // Add the 'scope.2' image
+import about from "./assets/images/about.jpeg";
+import scope1 from "./assets/images/scope.1.jpeg";
+import scope2 from "./assets/images/scope.2.jpeg";
 import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
 import HeroFooter from "./HeroFooter";
@@ -153,7 +150,7 @@ function Hero() {
 
   return (
     <>
-      <div className="min-h-screen bg-[#F4F0EC]">
+      <div className="min-h-screen bg-[#F4F0EC] ">
         {/* Navigation Bar */}
         <div className="pt-4 pb-4 pl-14 pr-14">
           <HeroNav />
@@ -175,7 +172,7 @@ function Hero() {
             />
           </motion.div>
 
-          <div className="w-full md:w-1/2 p-4 text-center md:text-left">
+          <div className="w-full md:w-1/2 p-4 text-center md:text-left ">
             <motion.h1
               className="text-4xl md:text-6xl font-bold leading-tight"
               initial={{ opacity: 0 }}
@@ -227,65 +224,76 @@ function Hero() {
             </div>
           </div>
         </div>
-      </div>
 
-      <div className="min-h-screen bg-[#faf1e6] border-2">
-        <div ref={scrollRef} style={{ overflow: "scroll" }}>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 2.0, delay: 0.4 }}
-            viewport={{ root: scrollRef }}
-            className="mt-auto p-20 flex flex-col justify-start"
-          >
-            {/* About DomoticAI */}
-            <h2 className="text-5xl mb-10">
-              About <span className="text-[#005C29]">Domotic</span>
-              <span className="text-black">AI</span>
-            </h2>
-            <div className="flex items-center space-x-8 mb-20">
-              <div className="w-1/2">
-                <p>
-                  DomoticAI is a cutting-edge Internet of Things (IoT) solution
-                  that empowers you to control your home with just your voice. By
-                  integrating advanced voice recognition technology, DomoticAI
-                  seamlessly connects to your smart devices, enabling effortless
-                  control over lighting, climate, security, and more.
-                </p>
-              </div>
-              <div className="w-1/2">
-                <img
-                  src={about}
-                  alt="About DomoticAI"
-                  className="w-[70%] h-auto rounded-lg shadow-xl"
-                />
-              </div>
-            </div>
-            <div className="flex justify-between items-start mb-20">
-  
-              <div className="flex flex-col items-start space-y-4 w-1/2">
- 
-                <div className=" ml-[20%] w-1/2 opacity-85 mix-blend-multiply">
+        {/* About DomoticAI & Future Scope */}
+        <div className="min-h-screen ">
+          <div ref={scrollRef} style={{ overflow: "scroll" }}>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 2.0, delay: 0.4 }}
+              viewport={{ root: scrollRef }}
+              className="mt-auto p-20 flex flex-col justify-start"
+            >
+              {/* About DomoticAI */}
+              <h2 className="text-5xl mb-0 mt-24">
+                About <span className="text-[#005C29]">Domotic</span>
+                <span className="text-black">AI</span>
+              </h2>
+              <div className="flex items-center space-x-8 mb-20">
+                <div className="w-1/2">
+                  <p>
+                    DomoticAI is a cutting-edge Internet of Things (IoT) solution
+                    that empowers you to control your home with just your voice. By
+                    integrating advanced voice recognition technology, DomoticAI
+                    seamlessly connects to your smart devices, enabling effortless
+                    control over lighting, climate, security, and more.
+                  </p>
+                </div>
+                <div className="w-1/2">
                   <img
-                    src={scope2}
-                    alt="Scope 2"
-                    className="w-full h-auto rounded-lg "
+                    src={about}
+                    alt="About DomoticAI"
+                    className="w-[70%] h-auto rounded-lg shadow-xl"
                   />
                 </div>
               </div>
+              <div className="flex justify-between items-start mb-20">
+                
+                <div className="flex flex-col items-start space-y-4 w-1/2">
+                  <div className="ml-[20%] w-1/2 opacity-85 mix-blend-multiply">
+                  <motion.div
+                    initial={{ opacity: 1, y: 0 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0 }}
+                    className="ml-[20%] w-[250px] opacity-85 mix-blend-multiply"
+                  >
+                    <img
+                      src={scope2}
+                      alt="Scope 2"
+                      className="w-full h-auto rounded-lg"
+                    />
+                  </motion.div>
 
-              <div className="w-1/2 pl-8">
-                <h2 className="text-5xl mb-6 bg-[#005C29] text-white p-4 rounded-full">
-                  Future Scope
-                </h2>
-                <p className="text-lg">
-                  Fuelled by passion, driven by innovation. We're young, we're ambitious,
-                  and we're ready to revolutionize smart homes by building a cutting-edge startup.
-                </p>
+                  </div>
+                </div>
+
+                <div className="w-1/2 pl-8">
+                  {/* <h2 className="text-5xl mb-6 bg-[#005C29] text-white p-4 rounded-full">
+                    Future Scope
+                  </h2> */}
+                  <h2 className="text-5xl mb-10">
+                    Future <span className="text-[#005C29]">Scope</span>
+                  </h2>
+
+                  <p className="text-lg">
+                    Fuelled by passion, driven by innovation. We're young, we're ambitious,
+                    and we're ready to revolutionize smart homes by building a cutting-edge startup.
+                  </p>
+                </div>
               </div>
-            </div>
-
-          </motion.div>
+            </motion.div>
+          </div>
         </div>
       </div>
 

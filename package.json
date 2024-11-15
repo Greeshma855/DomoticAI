@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "google-auth-library": "^9.14.2",
+    "react-google-login": "^5.2.2"
+  }
+}
