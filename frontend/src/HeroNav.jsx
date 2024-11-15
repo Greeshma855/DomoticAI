@@ -26,9 +26,12 @@ const HeroNav = () => {
 
   return (
     <>
-      <nav className="bg-[#CAA480] flex items-center justify-between p-8 mx-auto rounded-2xl">
+      {/* <nav className="bg-[#CAA480] flex items-center justify-between p-8 mx-auto rounded-2xl"> i have made a change here */}
+      <nav className="bg-[#1d4b3e] flex items-center justify-between p-8 mx-auto rounded-2xl">
         <button className="text-4xl font-bold" onClick={() => navigate("/")}>
-          Domotic<span className="text-[#A0612B]">AI</span>
+          {/* Domotic<span className="text-[#A0612B]">AI</span> i have made a change here */}
+          <span className="text-[#fbf7f0]">Domotic</span>AI
+
         </button>
 
         <div className="md:hidden">
@@ -42,24 +45,30 @@ const HeroNav = () => {
         </div>
 
         <div className="hidden md:flex items-center rounded-full px-8 py-2">
-          <Link to="/" className="text-black px-4">
+          {/* <Link to="/" className="text-black px-4"> i have made a change here*/}
+          <Link to="/" className="text-[#fbf7f0] px-4">
             Home
           </Link>
-          <Link to="/pricing" className="text-black px-4">
+          {/* <Link to="/pricing" className="text-black px-4"> */}
+          <Link to="/pricing" className="text-[#fbf7f0] px-4">
             Pricing
           </Link>
-          <Link to="/features" className="text-black px-4">
+          {/* <Link to="/features" className="text-black px-4"> */}
+          <Link to="/features" className="text-[#fbf7f0] px-4">
             Features
           </Link>
-          <Link to="/about" className="text-black px-4">
+          {/* <Link to="/about" className="text-black px-4"> */}
+          <Link to="/about" className="text-[#fbf7f0] px-4">
             About Us
           </Link>
-          <Link to="/faq" className="text-black px-4">
+          {/* <Link to="/faq" className="text-black px-4"> */}
+          <Link to="/about" className="text-[#fbf7f0] px-4">
             FAQ
           </Link>
         </div>
         <motion.button
-          className="hidden md:block bg-[#87553B] text-white px-6 py-2 rounded-lg outline-none font-medium"
+          // className="hidden md:block bg-[#87553B] text-white px-6 py-2 rounded-lg outline-none font-medium" i have made a change here
+          className="hidden md:block bg-[#006d5b] text-white px-6 py-2 rounded-lg outline-none font-medium"
           whileHover={{ scale: 1.1 }}
           transition={{ duration: 0.2 }}
           onClick={handleClick}
