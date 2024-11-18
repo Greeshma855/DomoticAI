@@ -64,9 +64,9 @@ import Signup from './pages/Signup';
 import Login from './pages/Login';
 import SmartHomeDashboard from './SmartHomeDashboard';
 import AnalyticsDashboard from './AnalyticsDashboard';
-import { Navigate } from 'react-router-dom';
 import Faq from './pages/faqsec';
-// import Dashboard from './Dashboard';
+
+
 
 const App = () => {
 
