@@ -38,9 +38,16 @@ connectDB();
 
 const app = express();
 
+// app.use(cors({
+//     origin: process.env.CLIENT_URL || 'http://localhost:3000',
+// }));
+
 app.use(cors({
-    origin: process.env.CLIENT_URL || 'http://localhost:3000',
+  origin: ['http://localhost:5173', 'http://localhost:3000'], // Allow multiple origins if needed
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true // if you need to include cookies in requests
 }));
+
 app.use(express.json());
 
 app.use('/api', authRoutes);
@@ -54,6 +61,12 @@ const PORT = process.env.PORT || 5000;
 app.use((err, req, res, next) => {
     console.error(err.stack);
     res.status(500).json({ message: 'Something went wrong on the server' });
+});
+
+app.use((req, res, next) => {
+    res.setHeader("Cross-Origin-Opener-Policy", "same-origin-allow-popups");
+    res.setHeader("Cross-Origin-Embedder-Policy", "unsafe-none");
+    next();
 });
 
 app.listen(PORT, () => {

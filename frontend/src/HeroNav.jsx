@@ -62,7 +62,7 @@ const HeroNav = () => {
             About Us
           </Link>
           {/* <Link to="/faq" className="text-black px-4"> */}
-          <Link to="/about" className="text-[#fbf7f0] px-4">
+          <Link to="/faq" className="text-[#fbf7f0] px-4">
             FAQ
           </Link>
         </div>

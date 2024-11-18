@@ -115,6 +115,85 @@ const Modal = ({ isOpen, onClose, onSubmit }) => {
 };
 
 // Sidebar component
+// const Sidebar = ({ onLogout }) => {
+//   const navigate = useNavigate();
+//   const [isExpanded, setIsExpanded] = useState(false);
+
+//   const menuItems = [
+//     { icon: LayoutDashboard, label: 'Dashboard', href: '/dashboard' },
+//     { icon: BarChart2, label: 'Analytics', href: '/dashboard/analytics' },
+//     { icon: Home, label: 'Smart Home', href: '/dashboard', active: true },
+//   ];
+
+//   return (
+//     <div className={`fixed top-0 left-0 h-screen shadow-lg transition-all duration-300 ${isExpanded ? 'w-64' : 'w-16'}`}>
+//       <div className="bg-white h-full flex flex-col justify-between">
+//         <div>
+//           <div className="p-4 flex items-center justify-between">
+//             <div className="flex items-center space-x-2 cursor-pointer" onClick={() => setIsExpanded(!isExpanded)}>
+//               <div className="w-8 h-8 bg-green-700 rounded-lg flex items-center justify-center">
+//                 <span className="text-white font-bold">D</span>
+//               </div>
+//               {isExpanded && <span className="font-semibold text-lg">DomoticAI</span>}
+//             </div>
+//             {/* {isExpanded && (
+//               <button
+//                 onClick={onLogout}
+//                 className="flex items-center space-x-2 px-3 py-2 rounded-lg text-sm text-gray-600 hover:bg-gray-50"
+//               >
+//                 <LogOut className="w-5 h-5" />
+//                 <span>Logout</span>
+//               </button>
+//             )} */}
+//           </div>
+
+//           {isExpanded && (
+//             <div className="flex-1 overflow-y-auto">
+//               <div className="p-4">
+//                 <div className="text-xs font-semibold text-gray-400 uppercase mb-4">Menu</div>
+//                 <nav className="space-y-1">
+//                   {menuItems.map((item) => (
+//                     <a
+//                       key={item.label}
+//                       href={item.href}
+//                       onClick={(e) => {
+//                         e.preventDefault();
+//                         navigate(item.href);
+//                       }}
+//                       className={`flex items-center space-x-2 px-3 py-2 rounded-lg text-sm ${
+//                         item.active 
+//                           ? 'bg-green-50 text-green-700' 
+//                           : 'text-gray-600 hover:bg-gray-50'
+//                       }`}
+//                     >
+//                       <item.icon className="w-5 h-5" />
+//                       <span>{item.label}</span>
+//                     </a>
+//                   ))}
+//                 </nav>
+//               </div>
+//             </div>
+//           )}
+//         </div>
+
+//         {isExpanded && (
+//           <div className="p-4 border-t">
+//             <button
+//               onClick={onLogout}
+//               className="flex items-center space-x-2 px-3 py-2 rounded-lg text-sm text-gray-600 hover:bg-gray-50 w-full"
+//             >
+//               <LogOut className="w-5 h-5" />
+//               <span>Logout</span>
+//             </button>
+//           </div>
+//         )}
+//       </div>
+//     </div>
+//   );
+// };
+
+
+
 const Sidebar = ({ onLogout }) => {
   const navigate = useNavigate();
   const [isExpanded, setIsExpanded] = useState(false);
@@ -136,61 +215,54 @@ const Sidebar = ({ onLogout }) => {
               </div>
               {isExpanded && <span className="font-semibold text-lg">DomoticAI</span>}
             </div>
-            {/* {isExpanded && (
-              <button
-                onClick={onLogout}
-                className="flex items-center space-x-2 px-3 py-2 rounded-lg text-sm text-gray-600 hover:bg-gray-50"
-              >
-                <LogOut className="w-5 h-5" />
-                <span>Logout</span>
-              </button>
-            )} */}
           </div>
 
-          {isExpanded && (
-            <div className="flex-1 overflow-y-auto">
-              <div className="p-4">
-                <div className="text-xs font-semibold text-gray-400 uppercase mb-4">Menu</div>
-                <nav className="space-y-1">
-                  {menuItems.map((item) => (
-                    <a
-                      key={item.label}
-                      href={item.href}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        navigate(item.href);
-                      }}
-                      className={`flex items-center space-x-2 px-3 py-2 rounded-lg text-sm ${
-                        item.active 
-                          ? 'bg-green-50 text-green-700' 
-                          : 'text-gray-600 hover:bg-gray-50'
-                      }`}
-                    >
-                      <item.icon className="w-5 h-5" />
-                      <span>{item.label}</span>
-                    </a>
-                  ))}
-                </nav>
-              </div>
+          <div className="flex-1 overflow-y-auto">
+            <div className={`p-4 ${isExpanded ? '' : 'flex flex-col items-center'}`}>
+              {isExpanded && <div className="text-xs font-semibold text-gray-400 uppercase mb-4">Menu</div>}
+              <nav className="space-y-1 w-full">
+                {menuItems.map((item) => (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      navigate(item.href);
+                    }}
+                    className={`flex items-center ${isExpanded ? 'space-x-2' : 'justify-center'} px-3 py-2 rounded-lg text-sm ${
+                      item.active 
+                        ? 'bg-green-50 text-green-700' 
+                        : 'text-gray-600 hover:bg-gray-50'
+                    }`}
+                    title={!isExpanded ? item.label : undefined}
+                  >
+                    <item.icon className="w-5 h-5" />
+                    {isExpanded && <span>{item.label}</span>}
+                  </a>
+                ))}
+              </nav>
             </div>
-          )}
+          </div>
         </div>
 
-        {isExpanded && (
-          <div className="p-4 border-t">
-            <button
-              onClick={onLogout}
-              className="flex items-center space-x-2 px-3 py-2 rounded-lg text-sm text-gray-600 hover:bg-gray-50 w-full"
-            >
-              <LogOut className="w-5 h-5" />
-              <span>Logout</span>
-            </button>
-          </div>
-        )}
+        <div className={`p-4 border-t ${isExpanded ? '' : 'flex justify-center'}`}>
+          <button
+            onClick={onLogout}
+            className={`flex items-center ${isExpanded ? 'space-x-2 w-full' : ''} px-3 py-2 rounded-lg text-sm text-gray-600 hover:bg-gray-50`}
+            title={!isExpanded ? 'Logout' : undefined}
+          >
+            <LogOut className="w-5 h-5" />
+            {isExpanded && <span>Logout</span>}
+          </button>
+        </div>
       </div>
     </div>
   );
 };
+
+// export default Sidebar;
+
+
 
 // Main dashboard component
 const SmartHomeDashboard = () => {
