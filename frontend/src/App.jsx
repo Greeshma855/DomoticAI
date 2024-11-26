@@ -21,6 +21,7 @@ const App = () => {
     // Set isAuthenticated to true after a successful login
     setIsAuthenticated(true);
   };
+  const navigate = useNavigate();
  
   return (
     <Routes>
@@ -34,8 +35,13 @@ const App = () => {
       <Route path="/dashboard" element={<SmartHomeDashboard/>} />
       {/* <Route
         path="/dashboard"
+<<<<<<< HEAD
         element={isAuthenticated ? <SmartHomeDashboard/> : <Navigate to="/login" />}
       /> */}
+=======
+        element={isAuthenticated ? <SmartHomeDashboard/> : navigate("/login")}
+      />
+>>>>>>> 6161060533770222c7af91bf1aa5ccda17a67df3
       <Route path="/dashboard/analytics" element={<AnalyticsDashboard/>} />
       <Route path='/faq' element={<Faq />} />
     </Routes>
