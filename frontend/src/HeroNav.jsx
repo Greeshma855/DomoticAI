@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
-import demo from "./assets/images/demo.png";
 import { motion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -99,7 +98,7 @@ const HeroNav = () => {
             </motion.a>
           ))}
           <motion.button
-            className="bg-[#A0612B] text-white px-6 py-2 rounded-lg font-medium"
+            className="bg-[#1d4b3e] text-white px-6 py-2 rounded-lg font-medium"
             whileHover={{ scale: 1.1 }}
             transition={{ duration: 0.2 }}
             custom={5}

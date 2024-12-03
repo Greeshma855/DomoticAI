@@ -15,16 +15,16 @@ export default function Faq() {
     }
 
     function buttoncolor(type) {
-      return current === type ? 'p-2 bg-[#87553B] text-white rounded-[5px]' : 'text-black';
+      return current === type ? 'p-2 bg-[#1d4b3e] text-white rounded-[5px]' : 'text-black';
   }
 
     return (
       <div>
-        <div className="pt-4 pb-4 pl-14 pr-14 bg-[#e1d9d0]">
+        <div className="pt-4 pb-4 pl-14 pr-14 bg-[#fbf7f0]">
           <HeroNav />
         </div>
       <div>
-        <div className="container flex-col justify-center items-center mx-auto bg-[#e1d9d0] min-h-fit min-w-full">
+        <div className="container flex-col justify-center items-center mx-auto bg-[#fbf7f0] min-h-fit min-w-full">
           <h1 className="flex items-center justify-center p-4 text-5xl tracking-widest font-Arima font-[700] mx-auto">FAQ</h1>
 
           <div className="flex p-3 font-Arima font-semibold text-lg max-w-[60%] flex-wrap mx-auto sm:flex-col gap-5 md:flex-row justify-evenly">
@@ -57,7 +57,7 @@ export default function Faq() {
 
           <div className="container font-Arima font-semibold tracking-wider text-center">
             <h1 className="text-[25px] mb-3">HAVE SOMETHING NOT BEING ADDRESSED?</h1>
-            <button className="md:max-w-[30%] text-1xl text-white bg-[#87553B] p-3 rounded-md mx-auto mb-10 hover:text-sm hover:rounded-xl">CONTACT US</button>
+            <button className="md:max-w-[30%] text-1xl text-white bg-[#1d4b3e] p-3 rounded-md mx-auto mb-10 hover:text-sm hover:rounded-xl">CONTACT US</button>
           </div>
         </div>
       </div>
